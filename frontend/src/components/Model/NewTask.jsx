@@ -11,7 +11,8 @@ function NewTask({ task }) {
       <h2>{title}</h2>
       <p>{description}</p>
       <p>{datetime}</p>
-      <input type="checkbox" name="task-checkbox" />
+      <button name="task-done-button" className='btn btn-secondary'>Done</button>
+      
     </div>
   );
 }

@@ -43,7 +43,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/getAllTasks', (req, res) => {
-    const sql = "SELECT * FROM tasks"; // Modify the SQL query as per your database schema
+    const sql = "SELECT * FROM tasks"; 
     db.query(sql, (err, data) => {
       if (err) {
         return res.status(500).json({ error: "Internal Server Error" });
