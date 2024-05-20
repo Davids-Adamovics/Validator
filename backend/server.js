@@ -42,20 +42,16 @@ app.post('/login', (req, res) => {
     });
 });
 
-app.get('/getTask/:id', (req, res) => {
-    const id = req.params.id;
-    const sql = "SELECT * FROM tasks WHERE id = ?";
-    db.query(sql, [id], (err, data) => {
-        if (err) {
-            return res.json("Error");
-        }
-        if (data.length > 0) {
-            return res.json(data[0]);  // Return the task details
-        } else {
-            return res.json("Failed");
-        }
+app.get('/getAllTasks', (req, res) => {
+    const sql = "SELECT * FROM tasks"; // Modify the SQL query as per your database schema
+    db.query(sql, (err, data) => {
+      if (err) {
+        return res.status(500).json({ error: "Internal Server Error" });
+      }
+      return res.json(data);
     });
-});
+  });
+  
 
 
 app.listen(8081, ()=>{
