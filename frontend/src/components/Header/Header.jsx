@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
-import "../components/Header.scss";
+import "../Header/Header.scss";
 import { useNavigate } from 'react-router-dom';
 
 function Header(){
     const navigateTo = useNavigate();
 
     return (
-
+      
         <header className="allnav">
         <nav>
             <a onClick={ () => {navigateTo('/Main')}}>Main</a>

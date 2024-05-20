@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import Header from '../Header'
 import { useNavigate } from 'react-router-dom';
 import Validation from './SignUpValidation';
 import axios from "axios";
+import Header from "../Header/Header";
 
 const SignUp = () => {
     const navigateTo = useNavigate();
