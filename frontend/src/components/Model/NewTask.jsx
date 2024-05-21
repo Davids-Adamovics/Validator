@@ -2,20 +2,19 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import "../Model/NewTask.scss";
-import axios from 'axios';
-import { useState } from 'react';
+import { format } from 'date-fns';
 
 function NewTask({ task, deleteTask }) {
   const { title, description, datetime, id } = task;
-
+  const formattedDatetime = format(new Date(datetime), 'yyyy-MM-dd HH:mm:ss');
   return (
     <div className="task">
       <h2>{title}</h2>
       <p>{description}</p>
-      <p>{datetime}</p>
+      <p>{formattedDatetime}</p>
       <button
         type="button"
-        className="btn btn-success"
+        className="btn btn-outline-light"
         onClick={() => deleteTask(id)}>
         Done
       </button>

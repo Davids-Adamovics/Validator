@@ -5,15 +5,21 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #464545;
+  background-color: rgb(43, 6, 44);
 }
 
 .contents-all{
-  background-color: #464545;
+  background-color: rgb(43, 6, 44);
   color: white;
   padding-bottom: auto;
 }
 
 .btn-b1{
   margin-right: 3rem;
+}
+
+.registration-bg1{
+  background-color: rgb(43, 6, 44);
+  justify-content: center;
+   align-items: center;
 }

@@ -35,9 +35,9 @@ const SignUp = () => {
 
 
     return (
-      <>
+      <div className="contents-all">
       <Header />
-      <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
+      <div className="registration-bg1">
         <div className="bg-white p-3 rounded w-25">
             <h1>Sign up</h1>
           <form action="" onSubmit={handleSubmit}>
@@ -67,7 +67,7 @@ const SignUp = () => {
           </form>
         </div>
       </div>
-      </>
+      </div>
     );
   };
 
