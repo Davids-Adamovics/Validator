@@ -43,7 +43,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/getAllTasks', (req, res) => {
-    const sql = "SELECT * FROM tasks";
+    const sql = "SELECT * FROM tasks ORDER BY datetime ASC";
     db.query(sql, (err, data) => {
         if (err) {
             return res.status(500).json({ error: "Internal Server Error" });
@@ -62,6 +62,22 @@ app.delete('/deleteTask/:id', (req, res) => {
         return res.json({ success: true });
     });
 });
+
+app.post('/addTask', (req, res) => {
+    const sql = "INSERT INTO tasks (id, title, description, datetime) VALUES (null, ?, ?, ?)";
+    const values = [
+      req.body.title,
+      req.body.description,
+      req.body.datetime
+    ];
+    db.query(sql, values, (err, data) => {  // Pass values directly without nested array
+      if (err) {
+        return res.json("Error");
+      }
+      return res.json(data);
+    });
+  });
+  
 
 
 

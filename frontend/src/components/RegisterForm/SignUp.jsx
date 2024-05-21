@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Validation from './SignUpValidation';
+import Validation from '../Validations/SignUpValidation';
 import axios from "axios";
 import Header from "../Header/Header";
 

@@ -11,6 +11,7 @@ import Profile from './pages/Profile.jsx';
 import LoginForm from './components/LoginForm/LoginForm.jsx';
 import SignUp from './components/RegisterForm/SignUp.jsx';
 import NewTask from './components/Model/NewTask.jsx';
+import CreateNewPage from './pages/CreateNewPage.jsx';
 
 function TaskWrapper() {
   const { id } = useParams();
@@ -33,6 +34,7 @@ function App() {
       <Route path="/" element={<Navigate to="/Main" replace />} />
       <Route path="/Main" element={<MainPage />} />
       <Route path="/Calendar" element={<Calendar />} />
+      <Route path="/CreateNewPage" element={<CreateNewPage />} />
       <Route path="/Tutorial" element={<Tutorial />} />
       <Route path="/task/:id" element={<TaskWrapper />} />
       {getProfileRoute()}

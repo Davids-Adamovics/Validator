@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 
 import { useNavigate } from 'react-router-dom';
-import Validation from "../LoginForm/LoginValidation";
+import Validation from "../Validations/LoginValidation";
 import axios from "axios";
 import Header from "../Header/Header";
 
