@@ -3,16 +3,20 @@
 import React from 'react';
 import "../Model/NewTask.scss";
 
-function NewTask({ task }) {
-  const { title, description, datetime } = task;
+function NewTask({ task, deleteTask }) {
+  const { title, description, datetime, id } = task;
 
   return (
     <div className="task">
       <h2>{title}</h2>
       <p>{description}</p>
       <p>{datetime}</p>
-      <button name="task-done-button" className='btn btn-secondary'>Done</button>
-      
+      <button
+        type="button"
+        className="btn-b1"
+        onClick={() => deleteTask(id)}>
+        Done
+      </button>
     </div>
   );
 }

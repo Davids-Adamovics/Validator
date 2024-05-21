@@ -20,17 +20,26 @@ function MainPage() {
     fetchTasks();
   }, []);
 
+  const deleteTask = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8081/deleteTask/${id}`);
+      // Update the tasks state after deletion
+      setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
+  };
+
   return (
     <div className="contents-all">
       <Header />
       <div className="container">
         <h1>All Tasks</h1>
-        <button type="button" className="btn btn-success" name="addTask">
-          +
-        </button>
-        <br />
+        <button type="button" className="btn btn-success" name="addTask">+</button><br />
         {tasks.map((task) => (
-          <NewTask key={task.id} task={task} />
+          <div key={task.id}>
+            <NewTask task={task} deleteTask={deleteTask} />
+          </div>
         ))}
       </div>
     </div>

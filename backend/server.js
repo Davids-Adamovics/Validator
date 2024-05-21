@@ -21,7 +21,7 @@ app.post('/signup', (req, res) => {
         req.body.password
     ];
     db.query(sql, [values], (err, data) => {
-        if(err){
+        if (err) {
             return res.json("Error");
         }
         return res.json(data);
@@ -31,10 +31,10 @@ app.post('/signup', (req, res) => {
 app.post('/login', (req, res) => {
     const sql = "SELECT * FROM login WHERE `email` = ? AND `password` = ?";
     db.query(sql, [req.body.email, req.body.password], (err, data) => {
-        if(err){
+        if (err) {
             return res.json("Error");
         }
-        if(data.length > 0){
+        if (data.length > 0) {
             return res.json("Success");
         } else {
             return res.json("Failed");
@@ -43,17 +43,29 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/getAllTasks', (req, res) => {
-    const sql = "SELECT * FROM tasks"; 
+    const sql = "SELECT * FROM tasks";
     db.query(sql, (err, data) => {
-      if (err) {
-        return res.status(500).json({ error: "Internal Server Error" });
-      }
-      return res.json(data);
+        if (err) {
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+        return res.json(data);
     });
-  });
-  
+});
+
+app.delete('/deleteTask/:id', (req, res) => {
+    const sql = "DELETE FROM tasks WHERE id = ?";
+    const id = req.params.id;
+    db.query(sql, [id], (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+        return res.json({ success: true });
+    });
+});
 
 
-app.listen(8081, ()=>{
+
+
+app.listen(8081, () => {
     console.log("listening on port 8081");
 });
